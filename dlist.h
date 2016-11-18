@@ -22,6 +22,7 @@ void dlist_destroy(struct dlist *dl, dlist_data_func);
 void *dlist_pop_left(struct dlist *dl);
 void *dlist_pop_right(struct dlist *dl);
 void *dlist_push_right(struct dlist *dl, void *data);
+void *dlist_push_left(struct dlist *dl, void *data);
 
 /* this function calls =cmp to compare =data and each value in =dl.  if a
  * match is found, it is removed from the list and its pointer is returned.

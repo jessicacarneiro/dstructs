@@ -92,6 +92,8 @@ void *dlist_push_left(struct dlist *dl, void *data) /* {{{ */
   node->next = dl->head;
   dl->head = node;
 
+  if(dl->tail == NULL) dl->tail = dl->head;
+
   dl->count++;
   return data;
 } /* }}} */

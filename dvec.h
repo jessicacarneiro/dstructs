@@ -49,5 +49,3 @@ dvec_declare(u32vec, uint32_t);
 #define dvec_memcmp(_v1, _v2) ((_v1).sz != ((_v2).sz) ? \
 	((_v1).sz > (_v2).sz) - ((_v1).sz < (_v2).sz) : \
 	memcmp((_v1).data, (_v2).data, (_v1).sz * sizeof((_v1).data[0])))
-
-#endif

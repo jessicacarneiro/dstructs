@@ -4,6 +4,7 @@
 #include <assert.h>
 #include <stddef.h>
 #include <stdlib.h>
+#include <string.h>
 
 #include "log.h"
 
@@ -18,14 +19,16 @@
  * }
  **/
 
-#define dvec_declare_struct(name, type) struct name { size_t sz; size_t max; type *data; }
+#define dvec_declare(name, type) struct name { size_t sz; size_t max; type *data; }
+
+dvec_declare(i32vec, int32_t);
+dvec_declare(u32vec, uint32_t);
 
 #define dvec_struct(type) struct { size_t sz; size_t max; type *data; }
 
-#define dvec_init(_v1, initsz) { \
-	assert(initsz > 0); \
+#define dvec_init(_v1) { \
 	(_v1).sz = 0; \
-	(_v1).max = initsz; \
+	(_v1).max = 2; \
 	(_v1).data = malloc((_v1).max * sizeof((_v1).data[0])); \
 	if(!(_v1).data) logea(__FILE__, __LINE__, NULL); \
 }

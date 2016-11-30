@@ -28,6 +28,8 @@
 #include <stdlib.h>
 #include "pavl.h"
 
+#pragma GCC diagnostic ignored "-Wmaybe-uninitialized"
+
 /* Creates and returns a new table
    with comparison function |compare| using parameter |param|
    and memory allocator |allocator|.

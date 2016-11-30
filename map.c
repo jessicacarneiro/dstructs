@@ -1,8 +1,8 @@
+#include "map.h"
+
 #include <assert.h>
 #include <inttypes.h>
 #include <stdlib.h>
-
-#include "map.h"
 
 /* declarations **************************************************************/
 

@@ -1,5 +1,4 @@
-#ifndef __MAP_H__
-#define __MAP_H__
+#pragma once
 
 #include "pavl.h"
 
@@ -49,5 +48,3 @@ void *map_t_cur(struct pavl_map_trav *, const void **);
 int map_cmp_uint32(const void *v1, const void *v2, void *dummy);
 int map_cmp_int(const void *v1, const void *v2, void *dummy);
 void map_free(void *key, void *data, void *unused);
-
-#endif /* map.h */

@@ -1,6 +1,7 @@
+#include "bitvec.h"
+
 #include <assert.h>
 
-#include "bitvec.h"
 #include "log.h"
 
 struct bitvec * bitvec_create(size_t bits)

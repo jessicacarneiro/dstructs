@@ -1,5 +1,4 @@
-#ifndef __TIMESPEC_H__
-#define __TIMESPEC_H__
+#pragma once
 
 #include <time.h>
 
@@ -15,5 +14,3 @@ void timespec_sub(struct timespec a, struct timespec b, struct timespec *res);
 double timespec_sub_double(struct timespec a, struct timespec b);
 void timespec_shift(struct timespec base, double frac, struct timespec *target);
 char * timespec_str(struct timespec a);
-
-#endif

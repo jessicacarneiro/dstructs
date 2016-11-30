@@ -1,5 +1,4 @@
-#ifndef __DVEC_H__
-#define __DVEC_H__
+#pragma once
 
 #include <assert.h>
 #include <stddef.h>

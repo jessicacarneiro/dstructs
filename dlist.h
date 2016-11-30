@@ -1,5 +1,4 @@
-#ifndef __DLIST_H__
-#define __DLIST_H__
+#pragma once
 
 struct dlist {
 	struct dnode *head;
@@ -35,5 +34,3 @@ int dlist_empty(struct dlist *dl);
 void * dlist_get_index(const struct dlist *dl, int idx);
 /* changes the data at index =idx.  does nothing if =idx does not exist. */
 void dlist_set_index(struct dlist *dl, int idx, void *data);
-
-#endif

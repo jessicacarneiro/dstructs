@@ -32,10 +32,18 @@ dvec_declare(u32vec, uint32_t);
 	if(!(_v1).data) logea(__FILE__, __LINE__, NULL); \
 }
 
-#define dvec_append(_v1, value) { \
-	(_v1).data[(_v1).sz] = value; \
+#define dvec_append(_v1, _value) { \
+	(_v1).data[(_v1).sz] = _value; \
 	(_v1).sz++; \
 	dvec_check_expand(_v1); \
+}
+
+#define dvec_insert(_v1, _value, _idx) { \
+	(_v1).sz++; \
+	dvec_check_expand(_v1); \
+	memmove((_v1).data + (_idx) + 1, (_v1).data + (_idx), \
+			((_v1).sz - (_idx) - 1)*sizeof((_v1).data[0])); \
+	(_v1).data[_idx] = _value; \
 }
 
 #define dvec_check_expand(_v1) \

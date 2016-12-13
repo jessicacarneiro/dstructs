@@ -51,6 +51,7 @@
 	const typeof( ((type *)0)->member ) *__mptr = (ptr);	\
 	(type *)( (char *)__mptr - offsetof(type,member) );})
 
+#define READ_ONCE(x) (x)
 #define WRITE_ONCE(x, val) x=(val)
 #define EXPORT_SYMBOL(x) ;
 #ifndef __always_inline

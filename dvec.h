@@ -33,22 +33,22 @@ dvec_declare(u32vec, uint32_t);
 }
 
 #define dvec_append(_v1, _value) { \
+	dvec_reserve(_v1, 1); \
 	(_v1).data[(_v1).sz] = _value; \
 	(_v1).sz++; \
-	dvec_check_expand(_v1); \
 }
 
 #define dvec_insert(_v1, _value, _idx) { \
+	dvec_reserve(_v1, 1); \
 	(_v1).sz++; \
-	dvec_check_expand(_v1); \
 	memmove((_v1).data + (_idx) + 1, (_v1).data + (_idx), \
 			((_v1).sz - (_idx) - 1)*sizeof((_v1).data[0])); \
 	(_v1).data[_idx] = _value; \
 }
 
-#define dvec_check_expand(_v1) \
-	if((_v1).sz == (_v1).max) { \
-		(_v1).max <<= 1; \
+#define dvec_reserve(_v1, _space) \
+	if((_v1).sz + (_space) >= (_v1).max) { \
+		while((_v1).sz + (_space) >= (_v1.max)) (_v1).max <<= 1; \
 		(_v1).data = realloc((_v1).data, \
 				(_v1).max * sizeof((_v1).data[0])); \
 		if(!(_v1).data) logea(__FILE__, __LINE__, NULL); \

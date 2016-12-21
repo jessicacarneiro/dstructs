@@ -46,6 +46,12 @@ dvec_declare(u32vec, uint32_t);
 	(_v1).data[_idx] = _value; \
 }
 
+#define dvec_delete(_v1, _idx) { \
+	(_v1).sz--; \
+	memmove((_v1).data + (_idx), (_v1).data + (_idx) + 1, \
+			((_v1).sz - (_idx))*sizeof((_v1).data[0])); \
+}
+
 #define dvec_reserve(_v1, _space) \
 	if((_v1).sz + (_space) >= (_v1).max) { \
 		while((_v1).sz + (_space) >= (_v1.max)) (_v1).max <<= 1; \

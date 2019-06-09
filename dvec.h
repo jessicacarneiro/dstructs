@@ -16,6 +16,7 @@
  * for(int i = 0; i < vec.sz; i++) {
  *   printf("vec.data[%d] = %d\n", i, vec.data[i]);
  * }
+ * dvec_freedata(vec);
  **/
 
 #define dvec_declare(name, type) struct name { size_t sz; size_t max; type *data; }
@@ -63,3 +64,5 @@ dvec_declare(u32vec, uint32_t);
 #define dvec_memcmp(_v1, _v2) ((_v1).sz != ((_v2).sz) ? \
 	((_v1).sz > (_v2).sz) - ((_v1).sz < (_v2).sz) : \
 	memcmp((_v1).data, (_v2).data, (_v1).sz * sizeof((_v1).data[0])))
+
+#define dvec_freedata(_v1) free((_v1).data)

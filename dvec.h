@@ -55,7 +55,7 @@ dvec_declare(u32vec, uint32_t);
 
 #define dvec_reserve(_v1, _space) \
 	if((_v1).sz + (_space) >= (_v1).max) { \
-		while((_v1).sz + (_space) >= (_v1.max)) (_v1).max <<= 1; \
+		while((_v1).sz + (_space) >= ((_v1).max)) (_v1).max <<= 1; \
 		(_v1).data = realloc((_v1).data, \
 				(_v1).max * sizeof((_v1).data[0])); \
 		if(!(_v1).data) logea(__FILE__, __LINE__, NULL); \

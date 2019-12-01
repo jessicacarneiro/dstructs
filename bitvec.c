@@ -2,18 +2,19 @@
 
 #include <assert.h>
 
-#include "log.h"
-
 struct bitvec * bitvec_create(size_t bits)
 {
 	assert(sizeof(unsigned) == 4);
 	struct bitvec *vec = malloc(sizeof(*vec));
-	if(!vec) logea(__FILE__, __LINE__, NULL);
+	if(!vec) return NULL;
 	vec->nwords = (bits >> bitvec_word_logbits);
 	vec->nwords += (bits & (bitvec_word_bits - 1)) ? 1 : 0;
 	vec->nbits = bits;
 	vec->v = calloc(vec->nwords, sizeof(unsigned));
-	if(!vec->v) logea(__FILE__, __LINE__, NULL);
+	if(!vec->v) {
+		free(vec);
+		return NULL;
+	}
 	return vec;
 }
 

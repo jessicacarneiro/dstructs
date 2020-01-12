@@ -1,5 +1,4 @@
-#ifndef __BITVECTOR_HEADER__
-#define __BITVECTOR_HEADER__
+#pragma once
 
 #include <stdlib.h>
 
@@ -41,5 +40,3 @@ inline unsigned bitvec_test_set(struct bitvec *vec, size_t i)
  * passed to `cb`.  Pointer `data` is passed as the second parameter
  * to `cb`. */
 void bitvec_iterate(struct bitvec *vec, int (*cb)(size_t, void *), void *data);
-
-#endif

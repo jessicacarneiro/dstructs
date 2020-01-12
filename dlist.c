@@ -1,7 +1,7 @@
+#include "dlist.h"
+
 #include <stdlib.h>
 #include <assert.h>
-
-#include "dlist.h"
 
 struct dlist *dlist_create(void) /* {{{ */
 {
